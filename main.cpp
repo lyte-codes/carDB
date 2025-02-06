@@ -7,31 +7,46 @@ using namespace std;
 void editCar(Car* myCar);
 
 int main() {
-    /*
-    // Make Car
-    Car myCar("000000", 0, 0, 0);
-    // Price
-    myCar->setPrice(654321);
-    cout << myCar->getPrice() << endl;
-    myCar->setColor("00FFFF");
-    cout << myCar->getColor() << endl;
-    */
+    // Make List
     vector<Car*> CarList;
+    
+    // Make Cars
+    CarList.push_back(new Car("bd2025", 36712.97, 6, 123, "1XG"));
+    CarList.push_back(new Car("FAFBFC", 34574.98, 6, 126, "ZX3"));
+    CarList.push_back(new Car("010203", 33855.99, 6, 118, "AD5"));
+    CarList.push_back(new Car("878787", 41235.00, 8, 180, "QW9"));
+    CarList.push_back(new Car("123456", 123456.78, 8, 258, "RF1"));
 
-    CarList.push_back(new Car("bd2025", 36712.97, 6, 120, "1XG"));
-    CarList.push_back(new Car("FAFBFC", 34574.98, 6, 120, "ZX3"));
-    CarList.push_back(new Car("010203", 36712.97, 6, 120, "1XG"));
-    CarList.push_back(new Car("bd2025", 34574.98, 6, 120, "ZX3"));
-    // Print Cars
-    for (int a=0;a<CarList.size(); a++){
-        cout << "This car is owned by " << CarList.at(a)->getOwner() << " and is of the color " << CarList.at(a)->getColor() << ". It is $" << CarList.at(a)->getPrice() << " and has " << CarList.at(a)->getSeats() << " seats." << endl;
+    // Main Menu Loop
+    int option = -1;
+    while (not (option == 0)) {
+        // Print Options
+        cout << 
+        "\nExit - 0"
+        <<"\nPrint Cars - 1" << endl;
+
+        cout << "Enter option: ";
+        cin >> option;
+
+        // Do corresponding action
+        switch (option) {
+            case 1:
+            // e.g. List Cars
+                for (int a=0;a<CarList.size(); a++){
+                    cout << "This car is owned by " << CarList.at(a)->getOwner() << " and is of the color " << CarList.at(a)->getColor() << ". It is $" << CarList.at(a)->getPrice() << " and has " << CarList.at(a)->getSeats() << " seats." << endl;
+                 }
+                break;
+            case 2:
+                string tmp;
+                cout << "What car would you like to edit?\nEnter car here: ";
+                cin >> tmp;
+                //editCar(Find pointer from id);
+                break;
+        }
+     
+
     }
 
-    string tmp = "You found an Easter Egg!";
-    cout << "What car would you like to edit?/nEnter car here: ";
-    cin >> tmp;
-
-    //editCar(tmp);
 }
 
 void editCar(Car* myCar) {
