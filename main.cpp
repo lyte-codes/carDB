@@ -20,7 +20,7 @@ int main() {
 
     CarList.push_back(new Car("bd2025", 36712.97, 6, 120, "1XG"));
     CarList.push_back(new Car("FAFBFC", 34574.98, 6, 120, "ZX3"));
-    CarList.push_back(new Car("bd2025", 36712.97, 6, 120, "1XG"));
+    CarList.push_back(new Car("010203", 36712.97, 6, 120, "1XG"));
     CarList.push_back(new Car("bd2025", 34574.98, 6, 120, "ZX3"));
     // Print Cars
     for (int a=0;a<CarList.size(); a++){
