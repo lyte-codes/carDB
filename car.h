@@ -29,6 +29,7 @@ class Car {
     string getColor();
 
     string getID();
+    void printInfo();
 
     private:
 

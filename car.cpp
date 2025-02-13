@@ -71,3 +71,7 @@ void Car::getUserPassword(string newOwner) {
     string Car::getID() {
         return id;
     }
+
+    void Car::printInfo() {
+        cout << "This car is owned by " << owner << " and is of the color " << color << ". It is $" << priceUSD << " and has " << seats << " seats. It is has the ID " << id << "." << endl;
+    }

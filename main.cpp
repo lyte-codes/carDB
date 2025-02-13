@@ -23,7 +23,8 @@ int main() {
         // Print Options
         cout << 
         "\nExit - 0"
-        <<"\nPrint Cars - 1" << endl;
+        <<"\nPrint Cars - 1" 
+        <<"\nPick Car - 2" << endl;
 
         cout << "Enter option: ";
         cin >> option;
@@ -33,14 +34,23 @@ int main() {
             case 1:
             // e.g. List Cars
                 for (int a=0;a<CarList.size(); a++){
-                    cout << "This car is owned by " << CarList.at(a)->getOwner() << " and is of the color " << CarList.at(a)->getColor() << ". It is $" << CarList.at(a)->getPrice() << " and has " << CarList.at(a)->getSeats() << " seats." << endl;
+                    CarList.at(a)->printInfo();
                  }
                 break;
             case 2:
                 string tmp;
                 cout << "What car would you like to edit?\nEnter car here: ";
                 cin >> tmp;
-                //editCar(Find pointer from id);
+
+                for (int a=0; a<CarList.size(); a++)
+                {
+                    if (CarList.at(a)->getID() == tmp) {
+                        editCar(CarList.at(a));
+                        break;
+                    }
+                break;
+                }
+                
                 break;
         }
      
@@ -48,12 +58,12 @@ int main() {
     }
 
 }
-
+//
 void editCar(Car* myCar) {
     int option=11;
     while (not (option == 0)) {
         cout << 
-        "\nExit - 0"
+        "\nReturn to main menu - 0"
         <<"\nSet Owner - 1"
         <<"\nGet Owner - 2"
         <<"\nSet Top Speed - 3"
