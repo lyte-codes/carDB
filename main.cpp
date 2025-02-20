@@ -13,7 +13,6 @@ int main() {
     // Make Cars
     CarList.push_back(new Car("bd2025", 36712.97, 6, 123, "1XG"));
     CarList.push_back(new Car("FAFBFC", 34574.98, 6, 126, "ZX3"));
-    CarList.push_back(new Car("010203", 33855.99, 6, 118, "AD5"));
     CarList.push_back(new Car("878787", 41235.00, 8, 180, "QW9"));
     CarList.push_back(new Car("123456", 123456.78, 8, 258, "RF1"));
 
@@ -24,11 +23,12 @@ int main() {
         cout << 
         "\nExit - 0"
         <<"\nPrint Cars - 1" 
-        <<"\nPick Car - 2" << endl;
+        <<"\nPick Car - 2"
+        <<"\nAdd Car - 3" << endl;
 
         cout << "Enter option: ";
         cin >> option;
-
+        string tmp;
         // Do corresponding action
         switch (option) {
             case 1:
@@ -36,9 +36,9 @@ int main() {
                 for (int a=0;a<CarList.size(); a++){
                     CarList.at(a)->printInfo();
                  }
-                break;
+            break;
             case 2:
-                string tmp;
+                
                 cout << "What car would you like to edit?\nEnter car here: ";
                 cin >> tmp;
 
@@ -48,10 +48,26 @@ int main() {
                         editCar(CarList.at(a));
                         break;
                     }
-                break;
                 }
-                
-                break;
+            break;
+            case 3:
+                string tmpColor;
+                float tmpPrice;
+                int tmpSeats;
+                int tmpSpeed;
+                string tmpID;
+                cout << "Enter car's hex color: ";
+                cin >> tmpColor;
+                cout << "Enter car's price in USD: $";
+                cin >> tmpPrice;
+                cout << "Enter number of seats: ";
+                cin >> tmpSeats;
+                cout << "Enter top speed in MPH: ";
+                cin >> tmpSpeed;
+                cout << "Enter car's UUID: ";
+                cin >> tmpID;
+                CarList.push_back(new Car(tmpColor, tmpPrice, tmpSeats, tmpSpeed, tmpID));
+            break;
         }
      
 
