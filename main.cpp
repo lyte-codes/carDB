@@ -24,20 +24,26 @@ int main() {
         "\nExit - 0"
         <<"\nPrint Cars - 1" 
         <<"\nPick Car - 2"
-        <<"\nAdd Car - 3" << endl;
+        <<"\nAdd Car - 3" 
+        <<"\nRemove Car - 4" << endl;
 
         cout << "Enter option: ";
         cin >> option;
         string tmp;
         // Do corresponding action
         switch (option) {
-            case 1:
+            case 0:{
+            system("clear");
+            break;
+            }
+            case 1:{
             // e.g. List Cars
                 for (int a=0;a<CarList.size(); a++){
                     CarList.at(a)->printInfo();
                  }
             break;
-            case 2:
+            }
+            case 2:{
                 
                 cout << "What car would you like to edit?\nEnter car here: ";
                 cin >> tmp;
@@ -50,12 +56,13 @@ int main() {
                     }
                 }
             break;
-            case 3:
-                string tmpColor;
+            }
+            case 3:{
+                string tmpColor="";
                 float tmpPrice;
                 int tmpSeats;
                 int tmpSpeed;
-                string tmpID;
+                string tmpID="";
                 cout << "Enter car's hex color: ";
                 cin >> tmpColor;
                 cout << "Enter car's price in USD: $";
@@ -68,8 +75,22 @@ int main() {
                 cin >> tmpID;
                 CarList.push_back(new Car(tmpColor, tmpPrice, tmpSeats, tmpSpeed, tmpID));
             break;
+            }
+            case 4:{
+                cout << "What is the ID of the car you want to remove" << endl;
+                cin >> tmp;
+                for (int a=0; a<CarList.size(); a++)
+                {
+                    if (CarList.at(a)->getID() == tmp) {
+                        delete CarList.at(a);
+                        CarList.erase(CarList.begin()+a);
+                        break;
+                    }
+                
+                }
+            break;
+            }
         }
-     
 
     }
 
@@ -143,8 +164,7 @@ void editCar(Car* myCar) {
         }
         if (option % 2 == 0) {
             cout << "press anybutton to continue: ";
-            cin >> inputStr;
-
+            cin >> inputStr;     
         }
 
     }
